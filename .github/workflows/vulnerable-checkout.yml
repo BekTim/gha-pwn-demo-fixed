@@ -1,4 +1,4 @@
-name: Defence 1 - Unsafe PR Checkout
+name: Defence 1 - Safe PR Checkout
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  attack-demo:
+  Defence-demo:
     runs-on: ubuntu-latest
 
     steps:
