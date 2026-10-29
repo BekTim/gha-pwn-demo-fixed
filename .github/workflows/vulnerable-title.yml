@@ -1,11 +1,11 @@
-name: Attack 2 - PR Title Injection
+name: Defence 2 - PR Title Injection
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, reopened]
 
 permissions:
-  contents: read
+  {}
 
 jobs:
   title-demo:
@@ -13,8 +13,10 @@ jobs:
 
     steps:
       - name: Process untrusted PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          echo "PR title: ${{ github.event.pull_request.title }}"
+          echo "Pull request title: $PR_TITLE"
 
       - name: Finish demonstration
         run: |
