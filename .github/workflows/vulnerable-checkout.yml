@@ -1,0 +1,25 @@
+name: Attack 1 - Unsafe PR Checkout
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  attack-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout pull request code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Run code from pull request
+        run: |
+          echo "Running code from the pull request..."
+          if [ -f demo.sh ]; then
+            bash demo.sh
+          fi
