@@ -20,4 +20,4 @@ jobs:
 
       - name: Finish demonstration
         run: |
-          echo "Attack 2 workflow completed."
+          echo "Defence 2 workflow completed."
