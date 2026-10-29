@@ -1,0 +1,30 @@
+name: GitHub Actions Security Demo
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display pull request title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "Pull request title: $PR_TITLE"
+
+      - name: Verify fake secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "DEMO_SECRET accessible: YES"
+          else
+            echo "DEMO_SECRET accessible: NO"
+          fi
