@@ -15,7 +15,7 @@ It shows how badly configured GitHub Actions workflows can be attacked.
 The secret `DEMO_SECRET` is fake. There are no real tokens in this repo.
 
 ## Fixed version
-The secure version of the same workflows: `gha-pwn-demo-fixed` (coming soon)
+The secure version of the same workflows: `gha-pwn-demo-fixed`
 
 ## Authors
 - @dh2591 — attack
